@@ -6,6 +6,20 @@ gulp.task("server",function(){
 		   .pipe(server({
 			   port:"7979",
 			   open:true,
-			   livereload:true
+			   livereload:true,
+			   proxies:[
+				   {
+					   source:"/list",
+					   target:"http://192.168.0.198:3000/list"
+				   },
+				   {
+					   sourse:"/insert",
+					   target:"http://192.168.0.198:3000/insert"
+				   },
+				   {
+					   source:"/del",
+					   target:"http://192.168.0.198:3000/del"
+				   }
+			   ]
 		   }))
 })
