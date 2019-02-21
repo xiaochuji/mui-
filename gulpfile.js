@@ -4,21 +4,25 @@ var server = require("gulp-webserver");
 gulp.task("server",function(){
 	return gulp.src('./src')
 		   .pipe(server({
-			   port:"7979",
+			   port:7979,
 			   open:true,
 			   livereload:true,
 			   proxies:[
 				   {
 					   source:"/list",
-					   target:"http://192.168.0.198:3000/list"
+					   target:"http://localhost:3000/list"
 				   },
 				   {
-					   sourse:"/insert",
-					   target:"http://192.168.0.198:3000/insert"
+					   source:"/insert",
+					   target:"http://localhost:3000/insert"
 				   },
 				   {
 					   source:"/del",
-					   target:"http://192.168.0.198:3000/del"
+					   target:"http://localhost:3000/del"
+				   },
+				   {
+					   source:"/find",
+					   target:"http://localhost:3000/find"
 				   }
 			   ]
 		   }))
